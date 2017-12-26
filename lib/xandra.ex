@@ -820,8 +820,10 @@ defmodule Xandra do
           end
         {:ok, %Error{} = error} ->
           {:error, error}
-        other ->
-          other
+        {:ok, result} ->
+          {:ok, result}
+        {:error, reason} ->
+          {:error, reason}
       end
     end)
   end
